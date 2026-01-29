@@ -32,40 +32,46 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
         isScrolled
-          ? "bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/60 border-b border-primary/20 shadow-lg"
-          : "bg-transparent border-transparent"
+          ? "bg-primary shadow-xl border-b border-secondary/20"
+          : "bg-gradient-to-b from-primary/80 to-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            {/* Logo: White background on blue header for pop, transparent on hero */}
-            <div className={`flex h-10 w-10 items-center justify-center rounded-full ${isScrolled ? "bg-white" : "bg-white/10 backdrop-blur-sm"}`}>
-              <Heart className={`h-5 w-5 ${isScrolled ? "text-primary" : "text-white"}`} />
+        <div className="flex h-18 items-center justify-between py-2">
+          <Link to="/" className="flex items-center gap-3 group">
+            {/* Logo with enhanced styling */}
+            <div className={`flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300 ${
+              isScrolled 
+                ? "bg-accent shadow-md" 
+                : "bg-accent/90 group-hover:bg-accent"
+            }`}>
+              <Heart className="h-5 w-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-white">
+            <span className={`text-xl font-bold transition-all duration-300 ${
+              isScrolled ? "text-primary-foreground" : "text-primary-foreground drop-shadow-md"
+            }`}>
               Divine Light
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-sm font-medium transition-colors hover:text-accent ${
+                className={`text-sm font-medium transition-all duration-200 relative py-1 ${
                   isActive(link.to)
-                    ? "text-accent font-bold"
-                    : "text-white/90"
-                }`}
+                    ? "text-accent font-semibold"
+                    : "text-primary-foreground/90 hover:text-accent"
+                } ${isActive(link.to) ? "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full" : ""}`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="ml-4 animate-pulse-slow bg-accent text-accent-foreground hover:bg-accent/90 border-0">
+            <Button asChild className="ml-4 bg-accent text-primary font-semibold hover:bg-accent/90 hover:scale-105 transition-all duration-200 shadow-lg border-0">
               <Link to="/donate">
                 <Heart className="mr-2 h-4 w-4" />
                 Donate
@@ -89,26 +95,26 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="lg:hidden py-4 border-t border-white/10 bg-primary absolute top-16 left-0 right-0 shadow-xl px-4">
-            <div className="flex flex-col gap-4">
+          <nav className="lg:hidden py-6 border-t border-secondary/20 bg-primary absolute top-[72px] left-0 right-0 shadow-2xl px-6">
+            <div className="flex flex-col gap-5">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-accent ${
+                  className={`text-base font-medium transition-all duration-200 py-2 px-3 rounded-lg ${
                     isActive(link.to)
-                      ? "text-accent font-bold"
-                      : "text-white/90"
+                      ? "text-accent bg-secondary/20 font-semibold"
+                      : "text-primary-foreground/90 hover:text-accent hover:bg-secondary/10"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="w-full mt-2 bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild className="w-full mt-3 bg-accent text-primary font-semibold hover:bg-accent/90 shadow-lg py-6">
                 <Link to="/donate" onClick={() => setIsMenuOpen(false)}>
-                  <Heart className="mr-2 h-4 w-4" />
-                  Donate
+                  <Heart className="mr-2 h-5 w-5" />
+                  Donate Now
                 </Link>
               </Button>
             </div>
