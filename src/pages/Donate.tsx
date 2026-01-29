@@ -1,0 +1,212 @@
+import { Link } from "react-router-dom";
+import Layout from "@/components/Layout";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Heart,
+  CreditCard,
+  Building,
+  Smartphone,
+  Shield,
+  CheckCircle,
+} from "lucide-react";
+
+const Donate = () => {
+  const donationSupports = [
+    "Food assistance and nutrition programmes for vulnerable families",
+    "Educational resources and scholarships for children",
+    "Healthcare access and medical outreach initiatives",
+    "Skills training and livelihood empowerment projects",
+    "Emergency relief and disaster response efforts",
+    "Community infrastructure development",
+  ];
+
+  const donationMethods = [
+    {
+      icon: CreditCard,
+      title: "Online Donation",
+      description:
+        "Make a secure donation using your credit or debit card through our online payment platform.",
+      action: "Donate Online",
+    },
+    {
+      icon: Building,
+      title: "Bank Transfer",
+      description:
+        "Transfer directly to our organisation's bank account. Contact us for banking details.",
+      action: "Get Bank Details",
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile Money",
+      description:
+        "Donate conveniently via mobile money transfer. Contact us for mobile payment details.",
+      action: "Get Mobile Details",
+    },
+  ];
+
+  return (
+    <Layout>
+      {/* Hero Section */}
+      <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="flex justify-center mb-6">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary-foreground/10">
+                <Heart className="h-8 w-8" />
+              </div>
+            </div>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              Your Generosity Changes Lives
+            </h1>
+            <p className="text-lg opacity-90">
+              Every donation, regardless of size, brings hope and creates 
+              lasting change in the communities we serve. Together, we can 
+              make a difference.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Donate */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                Why Your Donation Matters
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                As a registered non-profit organisation, we rely entirely on 
+                the generosity of individuals, businesses, and partners to fund 
+                our programmes. Your contribution directly supports our work in 
+                the community.
+              </p>
+            </div>
+
+            <Card className="mb-12">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-foreground mb-6">
+                  Your Donation Supports:
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {donationSupports.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Donation Methods */}
+      <section className="py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                How to Donate
+              </h2>
+              <p className="text-muted-foreground">
+                Choose the donation method that works best for you.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {donationMethods.map((method, index) => (
+                <Card key={index} className="text-center">
+                  <CardContent className="p-8">
+                    <div className="flex justify-center mb-4">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                        <method.icon className="h-7 w-7 text-primary" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                      {method.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 text-sm">
+                      {method.description}
+                    </p>
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link to="/contact">{method.action}</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Transparency Statement */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <Card className="border-primary/20">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 shrink-0">
+                    <Shield className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                      Transparency & Accountability
+                    </h3>
+                    <p className="text-muted-foreground mb-4">
+                      [Organisation Name] is a registered non-profit organisation. 
+                      We are committed to the transparent and responsible use of 
+                      all donations received. Our accounts are audited annually, 
+                      and we publish regular reports on how funds are utilised.
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Registration Number: [Registration Number]<br />
+                      Tax Exemption Status: [Tax Status if applicable]
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">
+              Ready to Make a Difference?
+            </h2>
+            <p className="text-lg opacity-90 mb-8">
+              Join the community of supporters who are helping us transform 
+              lives. Your gift today will create ripples of positive change 
+              for years to come.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="secondary" asChild>
+                <Link to="/contact">
+                  <Heart className="mr-2 h-5 w-5" />
+                  Donate Now
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+                asChild
+              >
+                <Link to="/contact">Contact Us for Details</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+export default Donate;
