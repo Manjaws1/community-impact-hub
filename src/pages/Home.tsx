@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-muted/30">
+      <section className="relative py-20 lg:py-32 bg-muted/30 animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -51,7 +51,7 @@ const Home = () => {
               <Button asChild variant="outline" size="lg">
                 <Link to="/gallery">View Our Work</Link>
               </Button>
-              <Button asChild variant="secondary" size="lg">
+              <Button asChild variant="secondary" size="lg" className="animate-pulse-slow">
                 <Link to="/donate">
                   <Heart className="mr-2 h-4 w-4" />
                   Donate Now
@@ -63,7 +63,7 @@ const Home = () => {
       </section>
 
       {/* Focus Areas */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
@@ -95,7 +95,7 @@ const Home = () => {
       </section>
 
       {/* Impact Statement */}
-      <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 lg:py-24 bg-primary text-primary-foreground animate-fade-in-up">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">

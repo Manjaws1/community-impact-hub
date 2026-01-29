@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { to: "/", label: "Home" },
@@ -15,10 +24,20 @@ const Header = () => {
     { to: "/contact", label: "Contact" },
   ];
 
+  // Filter out donate from main nav if you want it separate, but existing code has it. 
+  // Wait, existing code has separate Button for donate. 
+  // I will just use the existing navLinks variable.
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b shadow-sm"
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
@@ -45,7 +64,7 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="ml-4">
+            <Button asChild className="ml-4 animate-pulse-slow">
               <Link to="/donate">
                 <Heart className="mr-2 h-4 w-4" />
                 Donate
