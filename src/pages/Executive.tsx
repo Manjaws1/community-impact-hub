@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { User, Shield, Scale } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 const Executive = () => {
   const executiveTeam = [
@@ -39,16 +40,29 @@ const Executive = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        {/* Background Image with Animation */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse-slow scale-105"
+            style={{ backgroundImage: "url('/executive-bg.png')" }}
+          />
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Our Leadership
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Meet the dedicated team responsible for guiding our organisation 
-              with integrity, accountability, and a commitment to our mission.
-            </p>
+            <Reveal>
+              <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 drop-shadow-sm">
+                Our Leadership
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-lg text-slate-800 font-medium drop-shadow-sm">
+                Meet the dedicated team responsible for guiding our organisation 
+                with integrity, accountability, and a commitment to our mission.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>

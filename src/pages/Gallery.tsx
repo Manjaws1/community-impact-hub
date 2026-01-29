@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Camera, Users, Heart, BookOpen } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 const Gallery = () => {
   const galleryCategories = [
@@ -39,17 +40,30 @@ const Gallery = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        {/* Background Image with Animation */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse-slow scale-105"
+            style={{ backgroundImage: "url('/gallery-bg.png')" }}
+          />
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Gallery
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              A visual journey through our programmes, community engagement, and 
-              the impact we create together. These images tell the story of 
-              transformation and hope.
-            </p>
+            <Reveal>
+              <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 drop-shadow-sm">
+                Gallery
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-lg text-slate-800 font-medium drop-shadow-sm">
+                A visual journey through our programmes, community engagement, and 
+                the impact we create together. These images tell the story of 
+                transformation and hope.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>

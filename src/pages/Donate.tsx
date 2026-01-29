@@ -10,6 +10,7 @@ import {
   Shield,
   CheckCircle,
 } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 const Donate = () => {
   const donationSupports = [
@@ -48,22 +49,35 @@ const Donate = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        {/* Background Image with Animation */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse-slow scale-105"
+            style={{ backgroundImage: "url('/donate-bg.png')" }}
+          />
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary-foreground/10">
-                <Heart className="h-8 w-8" />
+            <Reveal>
+              <div className="flex justify-center mb-6">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20 backdrop-blur-sm">
+                  <Heart className="h-8 w-8 text-primary-foreground" />
+                </div>
               </div>
-            </div>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Your Generosity Changes Lives
-            </h1>
-            <p className="text-lg opacity-90">
-              Every donation, regardless of size, brings hope and creates 
-              lasting change in the communities we serve. Together, we can 
-              make a difference.
-            </p>
+              <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 drop-shadow-sm">
+                Your Generosity Changes Lives
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-lg text-slate-800 font-medium opacity-90 drop-shadow-sm">
+                Every donation, regardless of size, brings hope and creates 
+                lasting change in the communities we serve. Together, we can 
+                make a difference.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -157,14 +171,14 @@ const Donate = () => {
                       Transparency & Accountability
                     </h3>
                     <p className="text-muted-foreground mb-4">
-                      [Organisation Name] is a registered non-profit organisation. 
+                      Divine Ligh is a registered non-profit organisation. 
                       We are committed to the transparent and responsible use of 
                       all donations received. Our accounts are audited annually, 
                       and we publish regular reports on how funds are utilised.
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Registration Number: [Registration Number]<br />
-                      Tax Exemption Status: [Tax Status if applicable]
+                      Registration Number: 08083132113<br />
+                      Tax Exemption Status: TX-AN-33928
                     </p>
                   </div>
                 </div>

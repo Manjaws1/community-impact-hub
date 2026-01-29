@@ -34,18 +34,19 @@ const Header = () => {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b shadow-sm"
+          ? "bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/60 border-b border-primary/20 shadow-lg"
           : "bg-transparent border-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-              <Heart className="h-5 w-5 text-primary-foreground" />
+            {/* Logo: White background on blue header for pop, transparent on hero */}
+            <div className={`flex h-10 w-10 items-center justify-center rounded-full ${isScrolled ? "bg-white" : "bg-white/10 backdrop-blur-sm"}`}>
+              <Heart className={`h-5 w-5 ${isScrolled ? "text-primary" : "text-white"}`} />
             </div>
-            <span className="text-xl font-bold text-foreground">
-              [Organisation Name]
+            <span className="text-xl font-bold text-white">
+              Divine Light
             </span>
           </Link>
 
@@ -55,16 +56,16 @@ const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-colors hover:text-accent ${
                   isActive(link.to)
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                    ? "text-accent font-bold"
+                    : "text-white/90"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="ml-4 animate-pulse-slow">
+            <Button asChild className="ml-4 animate-pulse-slow bg-accent text-accent-foreground hover:bg-accent/90 border-0">
               <Link to="/donate">
                 <Heart className="mr-2 h-4 w-4" />
                 Donate
@@ -79,32 +80,32 @@ const Header = () => {
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6 text-foreground" />
+              <X className="h-6 w-6 text-white" />
             ) : (
-              <Menu className="h-6 w-6 text-foreground" />
+              <Menu className="h-6 w-6 text-white" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="lg:hidden py-4 border-t">
+          <nav className="lg:hidden py-4 border-t border-white/10 bg-primary absolute top-16 left-0 right-0 shadow-xl px-4">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                  className={`text-sm font-medium transition-colors hover:text-accent ${
                     isActive(link.to)
-                      ? "text-primary"
-                      : "text-muted-foreground"
+                      ? "text-accent font-bold"
+                      : "text-white/90"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="w-full mt-2">
+              <Button asChild className="w-full mt-2 bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link to="/donate" onClick={() => setIsMenuOpen(false)}>
                   <Heart className="mr-2 h-4 w-4" />
                   Donate

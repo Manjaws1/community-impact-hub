@@ -5,22 +5,36 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        {/* Background Image with Animation */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse-slow scale-105"
+            style={{ backgroundImage: "url('/contact-bg.png')" }}
+          />
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Contact Us
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              We'd love to hear from you. Whether you have questions, want to 
-              partner with us, or wish to learn more about our work, please 
-              reach out.
-            </p>
+            <Reveal>
+              <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 drop-shadow-sm">
+                Contact Us
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-lg text-slate-800 font-medium drop-shadow-sm">
+                We'd love to hear from you. Whether you have questions, want to 
+                partner with us, or wish to learn more about our work, please 
+                reach out.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
