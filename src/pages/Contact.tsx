@@ -47,71 +47,68 @@ const Contact = () => {
               {/* Contact Information */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-6">
+                  <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
                     Get in Touch
                   </h2>
-                  <p className="text-muted-foreground mb-8">
+                  <p className="text-muted-foreground mb-8 text-xl leading-relaxed">
                     Our team is available to answer your enquiries and discuss 
                     how we can work together. Don't hesitate to contact us.
                   </p>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-8">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 shrink-0">
-                      <MapPin className="h-6 w-6 text-primary" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 shrink-0">
+                      <MapPin className="h-7 w-7 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">
+                      <h3 className="font-semibold text-foreground mb-1 text-xl">
                         Office Address
                       </h3>
-                      <p className="text-muted-foreground">
-                        [Street Address]<br />
-                        [City, Region]<br />
-                        [Country, Postal Code]
+                      <p className="text-muted-foreground text-lg">
+                        Lagos, Nigeria<br />
+                        (Office Address Placeholder)
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 shrink-0">
-                      <Phone className="h-6 w-6 text-primary" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 shrink-0">
+                      <Phone className="h-7 w-7 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">
+                      <h3 className="font-semibold text-foreground mb-1 text-xl">
                         Phone
                       </h3>
-                      <p className="text-muted-foreground">
-                        [Primary Phone Number]<br />
-                        [Alternative Phone Number]
+                      <p className="text-muted-foreground text-lg">
+                        +234 807 751 3753
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 shrink-0">
-                      <Mail className="h-6 w-6 text-primary" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 shrink-0">
+                      <Mail className="h-7 w-7 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">
+                      <h3 className="font-semibold text-foreground mb-1 text-xl">
                         Email
                       </h3>
-                      <p className="text-muted-foreground">
-                        [General Enquiries Email]<br />
-                        [Donations Email]
+                      <p className="text-muted-foreground text-lg">
+                        povalcrus@yahoo.com
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 shrink-0">
-                      <Clock className="h-6 w-6 text-primary" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 shrink-0">
+                      <Clock className="h-7 w-7 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">
+                      <h3 className="font-semibold text-foreground mb-1 text-xl">
                         Office Hours
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground text-lg">
                         Monday – Friday: 8:00 AM – 5:00 PM<br />
                         Saturday: 9:00 AM – 1:00 PM<br />
                         Sunday: Closed

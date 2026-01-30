@@ -40,25 +40,30 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex h-18 items-center justify-between py-2">
-          <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group">
             {/* Logo with enhanced styling */}
-            <div className={`flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300 ${
-              isScrolled 
-                ? "bg-accent shadow-md" 
-                : "bg-accent/90 group-hover:bg-accent"
-            }`}>
-              <Heart className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <span className={`text-xl font-bold transition-all duration-300 ${
+            <img 
+              src="/images/logo.png" 
+              alt="PANSDI Logo" 
+              className={`h-12 w-12 object-contain rounded-full shadow-md border-2 border-white/20 transition-all duration-300 ${isScrolled ? "scale-100" : "scale-110"}`} 
+            />
+            <span className={`text-xl font-bold tracking-tight transition-all duration-300 font-serif ${
               isScrolled ? "text-primary-foreground" : "text-primary-foreground drop-shadow-md"
             }`}>
-              Divine Light
+              PANSDI
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {[
+              { to: "/", label: "Home" },
+              { to: "/about", label: "About Us" },
+              { to: "/programmes", label: "Programmes" },
+              { to: "/impact", label: "Impact" },
+              { to: "/gallery", label: "Gallery" },
+              { to: "/contact", label: "Contact" },
+            ].map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
@@ -71,7 +76,7 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="ml-4 bg-accent text-primary font-semibold hover:bg-accent/90 hover:scale-105 transition-all duration-200 shadow-lg border-0">
+            <Button asChild className="ml-4 bg-accent text-primary font-semibold hover:bg-accent/90 hover:scale-105 transition-all duration-200 shadow-lg border-0 animate-pulse-slow">
               <Link to="/donate">
                 <Heart className="mr-2 h-4 w-4" />
                 Donate
@@ -97,7 +102,14 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="lg:hidden py-6 border-t border-secondary/20 bg-primary absolute top-[72px] left-0 right-0 shadow-2xl px-6">
             <div className="flex flex-col gap-5">
-              {navLinks.map((link) => (
+              {[
+                { to: "/", label: "Home" },
+                { to: "/about", label: "About Us" },
+                { to: "/programmes", label: "Programmes" },
+                { to: "/impact", label: "Impact" },
+                { to: "/gallery", label: "Gallery" },
+                { to: "/contact", label: "Contact" },
+              ].map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}

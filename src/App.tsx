@@ -11,6 +11,9 @@ import Contact from "./pages/Contact";
 import Donate from "./pages/Donate";
 import NotFound from "./pages/NotFound";
 
+import Programmes from "./pages/Programmes";
+import Impact from "./pages/Impact";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -22,7 +25,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/executive" element={<Executive />} />
+          <Route path="/programmes" element={<Programmes />} />
+          <Route path="/impact" element={<Impact />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/donate" element={<Donate />} />

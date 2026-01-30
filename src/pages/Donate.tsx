@@ -63,8 +63,8 @@ const Donate = () => {
           <div className="max-w-3xl mx-auto text-center">
             <Reveal>
               <div className="flex justify-center mb-6">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20 backdrop-blur-sm">
-                  <Heart className="h-8 w-8 text-primary-foreground" />
+                <div className="h-20 w-20 rounded-full bg-white/10 backdrop-blur-sm p-2 flex items-center justify-center shadow-lg">
+                  <img src="/images/logo.png" alt="PANSDI Logo" className="h-full w-full object-contain rounded-full" />
                 </div>
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 drop-shadow-sm">
@@ -86,11 +86,11 @@ const Donate = () => {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
                 Why Your Donation Matters
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-3xl mx-auto text-xl leading-relaxed">
                 As a registered non-profit organisation, we rely entirely on 
                 the generosity of individuals, businesses, and partners to fund 
                 our programmes. Your contribution directly supports our work in 
@@ -98,16 +98,16 @@ const Donate = () => {
               </p>
             </div>
 
-            <Card className="mb-12">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-foreground mb-6">
+            <Card className="mb-12 shadow-lg">
+              <CardContent className="p-10">
+                <h3 className="text-2xl font-semibold text-foreground mb-8">
                   Your Donation Supports:
                 </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {donationSupports.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{item}</span>
+                    <li key={index} className="flex items-start gap-4">
+                      <CheckCircle className="h-6 w-6 text-primary shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground text-lg">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -160,30 +160,28 @@ const Donate = () => {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <Card className="border-primary/20">
-              <CardContent className="p-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 shrink-0">
-                    <Shield className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
-                      Transparency & Accountability
-                    </h3>
-                    <p className="text-muted-foreground mb-4">
-                      Divine Ligh is a registered non-profit organisation. 
-                      We are committed to the transparent and responsible use of 
-                      all donations received. Our accounts are audited annually, 
-                      and we publish regular reports on how funds are utilised.
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Registration Number: 08083132113<br />
-                      Tax Exemption Status: TX-AN-33928
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <Reveal>
+                <Card className="border-primary/20 bg-primary/5">
+                <CardContent className="p-8">
+                    <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 shrink-0">
+                        <Shield className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold text-foreground mb-3">
+                        Transparency & Accountability
+                        </h3>
+                        <p className="text-muted-foreground mb-4">
+                        PANSDI is a registered non-profit organisation committed to the transparent and responsible use of all donations. We ensure that every Naira contributes directly to our mission.
+                        </p>
+                        <p className="text-sm font-medium text-primary">
+                        Verified Non-Profit Organisation
+                        </p>
+                    </div>
+                    </div>
+                </CardContent>
+                </Card>
+            </Reveal>
           </div>
         </div>
       </section>

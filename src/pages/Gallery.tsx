@@ -98,21 +98,28 @@ const Gallery = () => {
             </div>
 
             {/* Gallery Grid */}
-            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
+            <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
               Our Work in Pictures
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galleryItems.map((item) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                  "/images/economic-empowerment.png",
+                  "/images/team-field.png",
+                  "/images/beneficiary-tailoring.png",
+                  "/images/agro-business.png",
+                  "/images/transformation.png",
+                  "/images/beneficiary-agro.png",
+                  "/images/health-wellness.png"
+              ].map((src, index) => (
                 <div
-                  key={item.id}
-                  className="aspect-square rounded-lg bg-muted flex items-center justify-center"
+                  key={index}
+                  className="aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group"
                 >
-                  <div className="text-center p-4">
-                    <Camera className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-xs text-muted-foreground">
-                      [Image {item.id}]
-                    </p>
-                  </div>
+                  <img 
+                    src={src} 
+                    alt={`Gallery ${index + 1}`} 
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
               ))}
             </div>

@@ -1,112 +1,122 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/Layout";
-import { Heart, Users, HandHeart, Lightbulb, ArrowRight } from "lucide-react";
+import { Heart, Users, Notebook, Sprout, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { ImpactCarousel } from "@/components/ImpactCarousel";
 
 const Home = () => {
   const focusAreas = [
     {
       icon: Users,
-      title: "Community Outreach",
+      title: "Economic Empowerment",
       description:
-        "Reaching underserved communities with essential services, education, and support programmes.",
+        "Vocational training, micro-credit support, and skill acquisition for women and youth.",
     },
     {
-      icon: HandHeart,
-      title: "Welfare Support",
+      icon: Notebook, // Using Notebook instead of Computer/Wifi if not available, representing digital literacy/education
+      title: "Digital Inclusion",
       description:
-        "Providing food assistance, healthcare access, and emergency relief to families in need.",
+        "Bridging the digital divide with tech literacy programs for the modern age.",
     },
     {
-      icon: Lightbulb,
-      title: "Empowerment Programmes",
+      icon: Sprout,
+      title: "Climate Resilience",
       description:
-        "Equipping individuals with skills training, mentorship, and resources for sustainable livelihoods.",
+        "Promoting sustainable farming and eco-friendly practices in rural communities.",
     },
   ];
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-12 lg:py-32 overflow-hidden">
-        {/* Background Image with Animation */}
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-primary">
+        {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse-slow scale-105"
-            style={{ backgroundImage: "url('/divine-light-bg.png')" }}
-          />
-          {/* Dark Overlay for better text contrast */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+             {/* Gradient Backup if image fails */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-secondary/30" />
+            
+            {/* Abstract Shapes */}
+             <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl opacity-50" />
+             <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-secondary/30 rounded-full blur-3xl opacity-50" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <Reveal>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-md">
-                Transforming Lives Through Compassion and Action
-              </h1>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="text-lg text-slate-100 font-medium mb-8 drop-shadow-md">
-                We are a faith-based organisation committed to serving communities, 
-                empowering individuals, and creating lasting change. Through transparent 
-                governance and sustainable programmes, we work alongside local communities 
-                to build a brighter future for all.
-              </p>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="transition-all duration-300 hover:scale-105 bg-primary text-primary-foreground hover:bg-primary/90">
-                  <Link to="/about">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="transition-all duration-300 hover:scale-105 bg-transparent hover:bg-white text-white hover:text-primary border-white">
-                  <Link to="/gallery">View Our Work</Link>
-                </Button>
-                <Button asChild size="lg" className="animate-pulse-slow transition-all duration-300 hover:scale-105 bg-accent text-accent-foreground hover:bg-accent/90">
-                  <Link to="/donate">
-                    <Heart className="mr-2 h-4 w-4" />
-                    Donate Now
-                  </Link>
-                </Button>
-              </div>
-            </Reveal>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+             {/* Left: Text */}
+            <div className="text-left text-white space-y-6">
+              <Reveal>
+                <div className="inline-block px-4 py-1.5 bg-accent/20 text-accent font-medium text-sm rounded-full mb-4 border border-accent/20">
+                    Trusted NGO in Nigeria
+                </div>
+                <h1 className="text-4xl lg:text-6xl font-bold font-serif leading-tight">
+                  Empowering Communities, <br/>
+                  <span className="text-accent">Building Futures.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="text-xl md:text-2xl text-white/90 max-w-xl leading-relaxed">
+                  PANSDI is dedicated to poverty reduction, self-reliance, and sustainable development for marginalised women, youth, and rural populations.
+                </p>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <div className="flex flex-wrap gap-4 pt-4">
+                  <Button asChild size="lg" className="bg-accent text-primary font-bold hover:bg-accent/90 shadow-lg shadow-accent/20">
+                    <Link to="/donate">
+                      <Heart className="mr-2 h-5 w-5 fill-current" />
+                      Donate Now
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white hover:border-white">
+                    <Link to="/programmes">
+                      View Programmes
+                    </Link>
+                  </Button>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right: Carousel Component */}
+            <div className="relative">
+                 <Reveal delay={0.3}>
+                    <ImpactCarousel />
+                 </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Focus Areas */}
-      <section className="py-16 lg:py-24">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <Reveal>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">
-                Our Focus Areas
+            <div className="text-center mb-16 max-w-2xl mx-auto">
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 font-serif">
+                Our Core Focus Areas
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg">
                 We concentrate our efforts where they can make the greatest impact, 
                 working hand-in-hand with communities to address their most pressing needs.
               </p>
             </div>
           </Reveal>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {focusAreas.map((area, index) => (
               <Reveal key={index} delay={index * 0.1}>
-                <Card className="text-center h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg border-transparent hover:border-primary/20">
-                  <CardContent className="pt-8 pb-6">
-                    <div className="flex justify-center mb-4">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 transition-colors duration-300 group-hover:bg-primary/20">
-                        <area.icon className="h-7 w-7 text-primary" />
-                      </div>
+                <Card className="h-full group hover:shadow-xl transition-all duration-300 border-border/50 hover:border-accent/40 bg-card overflow-hidden">
+                  <CardContent className="p-8 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
+                      <area.icon className="h-8 w-8 text-primary group-hover:text-accent transition-colors duration-300" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-2xl font-bold text-foreground mb-3">
                       {area.title}
                     </h3>
-                    <p className="text-muted-foreground">{area.description}</p>
+                    <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
+                        {area.description}
+                    </p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -115,85 +125,23 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Impact Statement */}
-      <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
+      {/* CTA Footer */}
+      <section className="py-24 bg-primary relative overflow-hidden">
+         <div className="absolute inset-0 bg-secondary/10" />
+         <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+         
+        <div className="container mx-auto px-4 relative z-10 text-center">
           <Reveal>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">
-                Together, We Make a Difference
-              </h2>
-              <p className="text-lg opacity-90 mb-8">
-                Every contribution, no matter the size, helps us extend our reach 
-                and deepen our impact. Join us in our mission to serve those who 
-                need it most.
-              </p>
-              <Button asChild variant="secondary" size="lg" className="transition-transform duration-300 hover:scale-105 shadow-lg">
-                <Link to="/donate">
-                  <Heart className="mr-2 h-4 w-4" />
-                  Support Our Mission
-                </Link>
-              </Button>
-            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-serif">
+              Join us in creating lasting change.
+            </h2>
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+                Your support can turn vulnerability into resilience and poverty into prosperity.
+            </p>
+            <Button asChild size="lg" className="h-14 px-8 text-lg bg-white text-primary hover:bg-white/90 font-bold rounded-full shadow-2xl">
+                <Link to="/contact">Get Involved Now <ArrowRight className="ml-2 w-5 h-5"/></Link>
+            </Button>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Get Involved */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <Reveal>
-              <div>
-                <h2 className="text-3xl font-bold text-foreground mb-6">
-                  Get Involved
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  Whether you wish to volunteer your time, partner with us on 
-                  programmes, or contribute financially, there are many ways to 
-                  be part of our work. We welcome individuals, businesses, and 
-                  organisations who share our vision for positive community change.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild className="transition-transform duration-300 hover:scale-105">
-                    <Link to="/contact">Contact Us</Link>
-                  </Button>
-                  <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105">
-                    <Link to="/executive">Meet Our Team</Link>
-                  </Button>
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="bg-muted rounded-lg p-8 hover:shadow-md transition-shadow duration-300">
-                <h3 className="text-xl font-semibold text-foreground mb-4">
-                  Why Partner With Us?
-                </h3>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">•</span>
-                    Transparent governance and financial accountability
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">•</span>
-                    Community-led approach to programme design
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">•</span>
-                    Regular impact reporting and updates
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">•</span>
-                    Established presence and local expertise
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary font-bold">•</span>
-                    Commitment to sustainable, long-term solutions
-                  </li>
-                </ul>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
     </Layout>
