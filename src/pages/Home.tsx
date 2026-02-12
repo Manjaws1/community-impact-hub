@@ -32,11 +32,11 @@ const Home = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-primary">
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-secondary">
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
              {/* Gradient Backup if image fails */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-secondary/30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary/95 to-primary/30" />
             
             {/* Abstract Shapes */}
              <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl opacity-50" />
@@ -126,8 +126,8 @@ const Home = () => {
       </section>
 
       {/* CTA Footer */}
-      <section className="py-24 bg-primary relative overflow-hidden">
-         <div className="absolute inset-0 bg-secondary/10" />
+      <section className="py-24 bg-secondary relative overflow-hidden">
+         <div className="absolute inset-0 bg-primary/10" />
          <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
          
         <div className="container mx-auto px-4 relative z-10 text-center">
