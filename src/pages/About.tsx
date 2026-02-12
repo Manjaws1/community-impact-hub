@@ -34,11 +34,11 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-primary">
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-secondary">
          {/* Background Overlay */}
         <div className="absolute inset-0 z-0 opacity-20">
              <div className="absolute inset-0 bg-[url('/about-bg.png')] bg-cover bg-center" />
-             <div className="absolute inset-0 bg-primary mix-blend-multiply" />
+             <div className="absolute inset-0 bg-secondary mix-blend-multiply" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center">

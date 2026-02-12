@@ -33,7 +33,7 @@ const Programmes = () => {
     <Layout>
       <div className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative py-20 lg:py-32 bg-primary text-primary-foreground">
+        <section className="relative py-20 lg:py-32 bg-secondary text-secondary-foreground">
           <div className="container mx-auto px-4 text-center">
             <Reveal>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-serif">Our Programmes</h1>
