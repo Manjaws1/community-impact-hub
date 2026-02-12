@@ -34,8 +34,8 @@ const Header = () => {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-500 ${
         isScrolled
-          ? "bg-primary shadow-xl border-b border-secondary/20"
-          : "bg-gradient-to-b from-primary/80 to-transparent"
+          ? "bg-secondary shadow-xl border-b border-primary/20"
+          : "bg-gradient-to-b from-secondary/80 to-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -100,7 +100,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="lg:hidden py-6 border-t border-secondary/20 bg-primary absolute top-[72px] left-0 right-0 shadow-2xl px-6">
+          <nav className="lg:hidden py-6 border-t border-primary/20 bg-secondary absolute top-[72px] left-0 right-0 shadow-2xl px-6">
             <div className="flex flex-col gap-5">
               {[
                 { to: "/", label: "Home" },
